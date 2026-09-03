@@ -1,0 +1,13 @@
+ticker,cik,company,sector,industry
+AAPL,320193,Apple Inc.,Information Technology,Technology Hardware
+MSFT,789019,Microsoft Corp.,Information Technology,Systems Software
+AMZN,1018724,Amazon.com Inc.,Consumer Discretionary,Broadline Retail
+NVDA,1045810,NVIDIA Corp.,Information Technology,Semiconductors
+AMT,1053507,American Tower Corp.,Real Estate,Telecom Infrastructure REIT
+JPM,19617,JPMorgan Chase & Co.,Financials,Diversified Banks
+XOM,34088,Exxon Mobil Corp.,Energy,Integrated Oil & Gas
+JNJ,200406,Johnson & Johnson,Health Care,Pharmaceuticals
+PG,80424,Procter & Gamble Co.,Consumer Staples,Household Products
+HD,354950,Home Depot Inc.,Consumer Discretionary,Home Improvement Retail
+BAC,70858,Bank of America Corp.,Financials,Diversified Banks
+V,1403161,Visa Inc.,Financials,Transaction & Payment Processing

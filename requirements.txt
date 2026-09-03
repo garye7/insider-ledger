@@ -1,0 +1,4 @@
+requests>=2.31
+# Only needed for scripts/build_constituents.py:
+pandas>=2.0
+lxml>=5.0

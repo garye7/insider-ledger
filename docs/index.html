@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insider Ledger — Morning Form 4 Report</title>
+<style>
+  :root{
+    --cream: #f3efe4; --cream-2: #ece6d8; --hairline: #ddd5c2;
+    --ink: #1c1a15; --ink-soft: #55503f; --gray: #8b8474;
+    --green: #1f6e46; --green-bg: #dcefe1; --red: #a8402b; --red-bg: #f6e2dc;
+    --panel: #0e2018; --panel-mint: #79d9ab; --panel-text: #eef1e9; --amber: #b5763a;
+    --serif: Georgia, 'Times New Roman', Times, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 18px;border-bottom:1px solid var(--hairline);
+    background:radial-gradient(600px 140px at 15% 0%, rgba(31,110,70,0.06), transparent 70%);}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{width:40px;height:40px;background:var(--panel);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;font-size:16px;border-radius:6px;flex-shrink:0;}
+  .brand-name{font-family:var(--serif);font-weight:700;font-size:19px;line-height:1.15;}
+  .brand-sub{font-size:12px;color:var(--ink-soft);margin-top:1px;}
+  .scan-status{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-soft);white-space:nowrap;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;}
+  .dot.stale{background:var(--red);}
+  .subhead{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:22px 20px 26px;border-bottom:1px solid var(--hairline);position:relative;}
+  .subhead::after{content:"";position:absolute;right:0;top:14px;bottom:14px;width:3px;background:var(--amber);}
+  .subhead-desc{max-width:520px;color:var(--ink-soft);font-size:14.5px;line-height:1.55;}
+  .subhead-meta{text-align:right;padding-right:16px;}
+  .meta-label{font-size:11px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase;}
+  .meta-time{font-family:var(--serif);font-weight:700;font-size:20px;margin:2px 0;}
+  .meta-sub{font-size:12.5px;color:var(--ink-soft);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hairline);}
+  .stat{padding:22px 22px 24px;border-left:4px solid transparent;border-right:1px solid var(--hairline);}
+  .stat:last-child{border-right:none;}
+  .stat.purchases{border-left-color:var(--green);} .stat.sales{border-left-color:var(--red);}
+  .stat-label{font-size:11px;letter-spacing:.07em;color:var(--gray);text-transform:uppercase;font-weight:600;}
+  .stat-num{font-family:var(--serif);font-size:38px;line-height:1.2;margin:4px 0 6px;}
+  .stat-sub{font-size:12.5px;color:var(--ink-soft);}
+  .morning{background:var(--panel);color:var(--panel-text);padding:34px 28px;display:grid;grid-template-columns:1.6fr auto auto;gap:34px;align-items:start;}
+  .morning-eyebrow{grid-column:1/-1;font-size:11px;letter-spacing:.1em;color:var(--panel-mint);text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+  .morning-copy{font-family:var(--serif);font-size:26px;line-height:1.45;}
+  .signal-box, .avg-box{min-width:170px;}
+  .box-label{font-size:11px;letter-spacing:.06em;color:#a9b3a5;text-transform:uppercase;margin-bottom:8px;}
+  .signal-ticker{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--panel-mint);}
+  .signal-tag{font-size:12.5px;color:#c8cfc4;margin-top:4px;}
+  .avg-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .avg-row:last-of-type{border-bottom:none;}
+  .avg-name{display:flex;align-items:center;gap:7px;font-size:13.5px;}
+  .avg-swatch{width:7px;height:7px;border-radius:50%;} .avg-swatch.p{background:var(--panel-mint);} .avg-swatch.s{background:#e8917e;}
+  .avg-num{font-family:var(--serif);font-size:21px;font-weight:700;}
+  .avg-sub{font-size:11.5px;color:#a9b3a5;margin-top:2px;text-align:right;}
+  .activity{padding:32px 20px 8px;}
+  .activity-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+  .eyebrow-amber{font-size:11px;letter-spacing:.1em;color:var(--amber);text-transform:uppercase;font-weight:700;}
+  .activity-title{font-family:var(--serif);font-size:28px;margin:6px 0 0;}
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .tabs{display:flex;background:var(--cream-2);border-radius:6px;padding:3px;}
+  .tab{border:none;background:transparent;padding:7px 14px;font-size:13px;color:var(--ink-soft);border-radius:5px;cursor:pointer;font-family:var(--sans);font-weight:500;}
+  .tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+  .search{border:1px solid var(--hairline);background:#fff;border-radius:6px;padding:7px 12px;font-size:13px;color:var(--ink);min-width:190px;}
+  .search:focus{outline:2px solid var(--green);outline-offset:1px;}
+  .cols-btn{border:1px solid var(--hairline);background:#fff;border-radius:6px;padding:7px 12px;font-size:13px;color:var(--ink-soft);cursor:pointer;position:relative;}
+  .cols-panel{position:absolute;right:20px;margin-top:6px;background:#fff;border:1px solid var(--hairline);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);padding:10px 14px;z-index:20;display:none;min-width:200px;}
+  .cols-panel.open{display:block;}
+  .cols-panel label{display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;color:var(--ink-soft);cursor:pointer;}
+  .cols-wrap{position:relative;}
+  .table-scroll{overflow-x:auto;border-top:1px solid var(--hairline);}
+  table{width:100%;border-collapse:collapse;min-width:860px;}
+  thead th{text-align:left;font-size:10.5px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase;font-weight:600;padding:12px 14px;white-space:nowrap;cursor:pointer;user-select:none;border-bottom:1px solid var(--hairline);}
+  thead th .arrow{margin-left:4px;color:#c9c2ae;font-size:10px;}
+  thead th.sorted .arrow{color:var(--ink);}
+  tbody td{padding:16px 14px;border-bottom:1px solid var(--hairline);font-size:14px;vertical-align:top;}
+  tbody tr:hover{background:rgba(31,110,70,0.03);}
+  .ticker{color:var(--green);font-weight:700;font-family:var(--serif);font-size:15.5px;}
+  .company-sub{color:var(--gray);font-size:12px;margin-top:2px;}
+  .insider-name{font-weight:600;} .own-sub{color:var(--gray);font-size:12px;margin-top:2px;}
+  .txn-pill{display:inline-block;padding:3px 9px;border-radius:4px;font-size:12px;font-weight:600;margin-right:6px;}
+  .txn-pill.P{background:var(--green-bg);color:var(--green);} .txn-pill.S{background:var(--red-bg);color:var(--red);}
+  .txn-date{color:var(--ink-soft);font-size:12.5px;}
+  .value-cell{font-weight:700;}
+  .sig-pill{display:inline-block;border:1px solid var(--hairline);border-radius:20px;padding:2px 10px;font-size:11.5px;color:var(--ink-soft);margin:2px 3px 2px 0;}
+  .empty-state{padding:40px 14px;text-align:center;color:var(--ink-soft);font-size:14px;}
+  .empty-state b{color:var(--ink);}
+  .load-error{padding:40px 20px;text-align:center;color:var(--red);font-size:14px;}
+  footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 20px 30px;font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+  footer b{color:var(--ink);} footer .health{max-width:220px;} footer .disclaimer{max-width:560px;text-align:right;}
+  @media (max-width:820px){
+    .stats{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border-right:none;}
+    .morning{grid-template-columns:1fr;gap:22px;} .subhead{flex-direction:column;}
+    .subhead-meta{text-align:left;padding-right:0;} .subhead::after{display:none;}
+    footer{flex-direction:column;} footer .disclaimer{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="logo">IL</div>
+      <div><div class="brand-name">Insider Ledger</div><div class="brand-sub">S&amp;P 500 Form 4 monitor</div></div>
+    </div>
+    <div class="scan-status"><span class="dot" id="statusDot"></span> <span id="scanStatus">Loading…</span></div>
+  </header>
+
+  <div id="app"></div>
+</div>
+
+<script>
+const DATA_URL = "data/report.json";
+
+function fmtDate(iso){
+  if (!iso) return "—";
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+let state = { filter: "P", search: "", sortKey: "value", sortDir: "desc", hidden: new Set(["sector","shares_after"]) };
+let REPORT = null;
+
+const COLUMNS = [
+  { key: "company",  label: "Company",     always: true },
+  { key: "insider",  label: "Insider",     always: true },
+  { key: "sector",   label: "Sector",      always: false },
+  { key: "role",     label: "Role",        always: true },
+  { key: "type",     label: "Transaction", always: true },
+  { key: "filed_date", label: "Filed",     always: true },
+  { key: "shares",   label: "Shares",      always: true },
+  { key: "price",    label: "Price",       always: true },
+  { key: "value",    label: "Value",       always: true },
+  { key: "shares_after", label: "Owned after", always: false },
+  { key: "flags",    label: "Flags",       always: false },
+  { key: "signals",  label: "Signal",      always: true },
+];
+
+async function load(){
+  try{
+    const resp = await fetch(DATA_URL, { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    REPORT = await resp.json();
+    document.getElementById("statusDot").classList.remove("stale");
+    document.getElementById("scanStatus").textContent = "Scan complete";
+    renderApp();
+  }catch(err){
+    document.getElementById("statusDot").classList.add("stale");
+    document.getElementById("scanStatus").textContent = "Data unavailable";
+    document.getElementById("app").innerHTML =
+      `<div class="load-error">Couldn't load data/report.json (${err.message}). ` +
+      `If this is a fresh deploy, the pipeline hasn't run yet — trigger the ` +
+      `"Morning Insider Report" workflow manually from the Actions tab.</div>`;
+  }
+}
+
+function renderApp(){
+  const r = REPORT;
+  document.getElementById("app").innerHTML = `
+    <div class="subhead">
+      <div class="subhead-desc">${r.window_label} Purchases and sales are separated so conviction is easier to read.</div>
+      <div class="subhead-meta">
+        <div class="meta-label">Data cutoff</div>
+        <div class="meta-time">${r.data_cutoff}</div>
+        <div class="meta-sub">${r.universe.constituents_monitored} constituents monitored · filings after this time appear next report</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat purchases">
+        <div class="stat-label">Purchases</div>
+        <div class="stat-num">${r.stats.purchases.count}</div>
+        <div class="stat-sub">${r.stats.purchases.value_display} total value</div>
+      </div>
+      <div class="stat sales">
+        <div class="stat-label">Sales</div>
+        <div class="stat-num">${r.stats.sales.count}</div>
+        <div class="stat-sub">${r.stats.sales.value_display} total value</div>
+      </div>
+      <div class="stat"><div class="stat-label">Companies</div><div class="stat-num">${r.stats.companies}</div><div class="stat-sub">with qualifying activity</div></div>
+      <div class="stat"><div class="stat-label">Insiders</div><div class="stat-num">${r.stats.insiders}</div><div class="stat-sub">unique reporting owners</div></div>
+    </div>
+    <div class="morning">
+      <div class="morning-eyebrow">The morning read</div>
+      <div class="morning-copy">${r.morning_read}</div>
+      <div class="signal-box">
+        <div class="box-label">Highest signal</div>
+        <div class="signal-ticker">${r.highest_signal ? r.highest_signal.ticker : "—"}</div>
+        <div class="signal-tag">${r.highest_signal ? r.highest_signal.tags.join(", ") : "No qualifying activity"}</div>
+      </div>
+      <div class="avg-box">
+        <div class="box-label">Trailing 4-week average</div>
+        <div class="avg-row"><div><div class="avg-name"><span class="avg-swatch p"></span>Purchases</div>
+          <div class="avg-sub">${r.trailing_4wk_avg.purchase_value_display} / week</div></div>
+          <div class="avg-num">${r.trailing_4wk_avg.purchase_count}</div></div>
+        <div class="avg-row"><div><div class="avg-name"><span class="avg-swatch s"></span>Sales</div>
+          <div class="avg-sub">${r.trailing_4wk_avg.sale_value_display} / week</div></div>
+          <div class="avg-num">${r.trailing_4wk_avg.sale_count}</div></div>
+      </div>
+    </div>
+    <div class="activity">
+      <div class="activity-head">
+        <div><div class="eyebrow-amber">Qualifying activity</div><div class="activity-title">Filed in the two-day window</div></div>
+        <div class="controls">
+          <div class="tabs" id="tabs">
+            <button class="tab" data-filter="all">All</button>
+            <button class="tab active" data-filter="P">Purchases</button>
+            <button class="tab" data-filter="S">Sales</button>
+          </div>
+          <input class="search" id="searchBox" type="text" placeholder="Search ticker or insider">
+          <div class="cols-wrap"><button class="cols-btn" id="colsBtn">Columns</button><div class="cols-panel" id="colsPanel"></div></div>
+        </div>
+      </div>
+      <div class="table-scroll"><table id="txnTable"><thead><tr id="headRow"></tr></thead><tbody id="bodyRows"></tbody></table></div>
+      <div class="empty-state" id="emptyState" style="display:none;"></div>
+    </div>
+    <footer>
+      <div class="health"><b>Data health</b><br>
+        ${r.data_health.filings_found.toLocaleString()} Form 4 filings found · ${r.data_health.filings_parsed.toLocaleString()} parsed · ${r.data_health.errors} errors
+      </div>
+      <div class="disclaimer">Source: SEC EDGAR Form 4 filings. Includes non-derivative transaction codes P and S with a $10,000 minimum reported value. "Signal" labels organize public filings; they are not investment recommendations. Filing dates can differ from transaction dates. Not personalized investment advice.</div>
+    </footer>
+  `;
+
+  document.getElementById("tabs").addEventListener("click", e => {
+    const btn = e.target.closest(".tab"); if (!btn) return;
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    btn.classList.add("active"); state.filter = btn.dataset.filter; renderTable();
+  });
+  document.getElementById("searchBox").addEventListener("input", e => { state.search = e.target.value; renderTable(); });
+  document.getElementById("colsBtn").addEventListener("click", () => document.getElementById("colsPanel").classList.toggle("open"));
+  document.addEventListener("click", e => {
+    const wrap = document.querySelector(".cols-wrap");
+    if (wrap && !wrap.contains(e.target)) document.getElementById("colsPanel").classList.remove("open");
+  });
+
+  buildColumnsPanel();
+  renderTable();
+}
+
+function buildColumnsPanel(){
+  const panel = document.getElementById("colsPanel");
+  panel.innerHTML = "";
+  COLUMNS.filter(c => !c.always).forEach(c => {
+    const wrap = document.createElement("label");
+    wrap.innerHTML = `<input type="checkbox" ${state.hidden.has(c.key) ? "" : "checked"}> ${c.label}`;
+    wrap.querySelector("input").addEventListener("change", e => {
+      if (e.target.checked) state.hidden.delete(c.key); else state.hidden.add(c.key);
+      renderTable();
+    });
+    panel.appendChild(wrap);
+  });
+}
+function visibleColumns(){ return COLUMNS.filter(c => c.always || !state.hidden.has(c.key)); }
+
+function getFiltered(){
+  let rows = REPORT.transactions.slice();
+  if (state.filter !== "all") rows = rows.filter(r => r.type === state.filter);
+  if (state.search.trim()){
+    const q = state.search.trim().toLowerCase();
+    rows = rows.filter(r => r.ticker.toLowerCase().includes(q) || r.insider.toLowerCase().includes(q));
+  }
+  rows.sort((a,b) => {
+    let av = a[state.sortKey], bv = b[state.sortKey];
+    if (state.sortKey === "signals"){ av = a.signals.length; bv = b.signals.length; }
+    if (typeof av === "string"){ av = av.toLowerCase(); bv = (bv||"").toLowerCase(); }
+    if (av == null) av = -Infinity; if (bv == null) bv = -Infinity;
+    if (av < bv) return state.sortDir === "asc" ? -1 : 1;
+    if (av > bv) return state.sortDir === "asc" ? 1 : -1;
+    return 0;
+  });
+  return rows;
+}
+
+function renderTable(){
+  const head = document.getElementById("headRow");
+  head.innerHTML = "";
+  visibleColumns().forEach(col => {
+    const th = document.createElement("th");
+    th.textContent = col.label;
+    if (col.key === state.sortKey) th.classList.add("sorted");
+    const arrow = document.createElement("span");
+    arrow.className = "arrow";
+    arrow.textContent = col.key === state.sortKey ? (state.sortDir === "asc" ? "↑" : "↓") : "↕";
+    th.appendChild(arrow);
+    th.addEventListener("click", () => {
+      if (state.sortKey === col.key) state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      else { state.sortKey = col.key; state.sortDir = "desc"; }
+      renderTable();
+    });
+    head.appendChild(th);
+  });
+
+  const body = document.getElementById("bodyRows");
+  const empty = document.getElementById("emptyState");
+  body.innerHTML = "";
+  const rows = getFiltered();
+  const cols = visibleColumns();
+
+  if (rows.length === 0){
+    empty.style.display = "block";
+    empty.innerHTML = state.filter === "P" ? "<b>No qualifying purchases</b> in this window."
+      : state.filter === "S" ? "<b>No qualifying sales</b> in this window."
+      : "<b>No qualifying activity</b> matches this view.";
+    return;
+  }
+  empty.style.display = "none";
+
+  rows.forEach(r => {
+    const tr = document.createElement("tr");
+    cols.forEach(col => {
+      const td = document.createElement("td");
+      switch(col.key){
+        case "company": td.innerHTML = `<div class="ticker">${r.ticker}</div><div class="company-sub">${r.company}</div>`; break;
+        case "insider": td.innerHTML = `<div class="insider-name">${r.insider}</div><div class="own-sub">${r.ownership}</div>`; break;
+        case "sector": td.innerHTML = `${r.sector}`; break;
+        case "role": td.textContent = r.role; break;
+        case "type": td.innerHTML = `<span class="txn-pill ${r.type}">${r.type === "P" ? "Purchase" : "Sale"}</span><span class="txn-date">${fmtDate(r.tx_date)}</span>`; break;
+        case "filed_date": td.textContent = fmtDate(r.filed_date); break;
+        case "shares": td.textContent = r.shares.toLocaleString(); break;
+        case "price": td.textContent = "$" + Number(r.price).toLocaleString(); break;
+        case "value": td.innerHTML = `<span class="value-cell">${r.value_display}</span>`; break;
+        case "shares_after": td.textContent = r.shares_after != null ? Number(r.shares_after).toLocaleString() : "—"; break;
+        case "flags": td.textContent = [r.rule_10b5_1 ? "10b5-1" : null, r.amended ? "Amended" : null].filter(Boolean).join(", ") || "—"; break;
+        case "signals": td.innerHTML = r.signals.map(s => `<span class="sig-pill">${s}</span>`).join(""); break;
+      }
+      tr.appendChild(td);
+    });
+    if (r.filing_url){ tr.style.cursor = "pointer"; tr.addEventListener("click", () => window.open(r.filing_url, "_blank")); }
+    body.appendChild(tr);
+  });
+}
+
+load();
+</script>
+</body>
+</html>

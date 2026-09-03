@@ -1,0 +1,34 @@
+{
+  "generated_at_utc": "2026-08-26T13:35:00+00:00",
+  "data_cutoff": "2026-08-26T09:35-04:00",
+  "window_label": "Form 4 transactions filed on Aug 25 and Aug 26.",
+  "universe": { "constituents_monitored": 500 },
+  "stats": {
+    "purchases": { "count": 1, "value": 500733, "value_display": "$500.7K" },
+    "sales": { "count": 114, "value": 193300000, "value_display": "$193.3M" },
+    "companies": 29,
+    "insiders": 36,
+    "sectors": 10,
+    "cluster_companies": 3,
+    "dominant": "sale"
+  },
+  "highest_signal": { "ticker": "AMT", "tags": ["Director", "Direct", "Purchase"] },
+  "trailing_4wk_avg": {
+    "purchase_count": 23.3, "purchase_value": 128500000, "purchase_value_display": "$128.5M",
+    "sale_count": 556.8, "sale_value": 1400000000, "sale_value_display": "$1.4B"
+  },
+  "morning_read": "1 purchase and 114 sales qualified across 29 companies and 10 sector groups. Sale value exceeded purchase value, with cluster activity at 3 companies. The trailing four-week weekly average is 23.3 purchases and 556.8 sales.",
+  "data_health": { "companies_checked": 500, "filings_found": 1975, "filings_parsed": 1975, "errors": 0, "error_detail": [] },
+  "transactions": [
+    {
+      "ticker": "AMT", "company": "American Tower", "sector": "Real Estate",
+      "insider": "Kalathur Rajesh", "role": "Director", "type": "P",
+      "tx_date": "2026-08-21", "filed_date": "2026-08-25",
+      "shares": 2829, "price": 177, "value": 500733, "value_display": "$500.7K",
+      "ownership": "Direct", "shares_after": null,
+      "rule_10b5_1": false, "amended": false,
+      "signals": ["Director", "Direct", "Purchase", "$250K+"],
+      "filing_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001053507&type=4"
+    }
+  ]
+}
