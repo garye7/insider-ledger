@@ -7,14 +7,14 @@ Rebuilds config/sp500_constituents.csv from two public sources:
     to attach the correct CIK to each ticker.
 
 Run this quarterly, or whenever you hear about an S&P 500 rebalance, and
-commit the updated CSV. Requires network access (this script is meant to be
-run locally or in CI — not inside a sandboxed environment).
+commit the updated CSV.
 
 Usage: python scripts/build_constituents.py
 """
 from __future__ import annotations
 
 import csv
+import os
 import sys
 from pathlib import Path
 
@@ -24,7 +24,10 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_PATH = ROOT / "config" / "sp500_constituents.csv"
 WIKI_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
 SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
-USER_AGENT = "InsiderLedgerConstituentBuilder/1.0 (set SEC_USER_AGENT env var for your own contact info)"
+USER_AGENT = os.environ.get(
+    "SEC_USER_AGENT",
+    "InsiderLedgerConstituentBuilder/1.0 (set SEC_USER_AGENT env var for your own contact info)",
+)
 
 
 def fetch_sp500_table() -> list[dict]:
