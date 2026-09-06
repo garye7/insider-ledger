@@ -29,14 +29,11 @@ USER_AGENT = os.environ.get(
     "SEC_USER_AGENT",
     "InsiderLedgerConstituentBuilder/1.0 (set SEC_USER_AGENT env var for your own contact info)",
 )
-# Wikipedia blocks requests with no/generic User-Agent (403 Forbidden), so we
-# fetch the HTML ourselves with a normal browser-like header, then hand the
-# raw text to pandas instead of letting it fetch the URL directly.
 BROWSER_UA = "Mozilla/5.0 (compatible; InsiderLedgerBot/1.0; +https://github.com/)"
 
 
 def fetch_sp500_table() -> list[dict]:
-    import pandas as pd  # local import: only needed for this one-off script
+    import pandas as pd
 
     resp = requests.get(WIKI_URL, headers={"User-Agent": BROWSER_UA}, timeout=20)
     resp.raise_for_status()
