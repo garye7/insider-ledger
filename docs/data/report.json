@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-09-06T22:58:26+00:00",
-  "data_cutoff": "2026-09-06T18:58-04:00",
+  "generated_at_utc": "2026-09-06T23:23:30+00:00",
+  "data_cutoff": "2026-09-06T19:19-04:00",
   "window_label": "Form 4 transactions filed on Sep 5 and Sep 6.",
   "universe": {
-    "constituents_monitored": 12
+    "constituents_monitored": 503
   },
   "stats": {
     "purchases": {
@@ -33,7 +33,7 @@
   },
   "morning_read": "0 purchases and 0 sales qualified across 0 companies and 0 sector groups. Purchase and sale value were roughly even. The trailing four-week weekly average is 0.0 purchases and 0.0 sales.",
   "data_health": {
-    "companies_checked": 12,
+    "companies_checked": 503,
     "filings_found": 0,
     "filings_parsed": 0,
     "errors": 0,
