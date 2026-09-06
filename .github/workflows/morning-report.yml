@@ -27,6 +27,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build full S&P 500 constituent list
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: |
           python scripts/build_constituents.py || {
             echo "Live build failed — falling back to the 12-company sample list."
