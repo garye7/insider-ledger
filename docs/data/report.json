@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-06T23:23:30+00:00",
-  "data_cutoff": "2026-09-06T19:19-04:00",
-  "window_label": "Form 4 transactions filed on Sep 5 and Sep 6.",
+  "generated_at_utc": "2026-09-08T21:31:58+00:00",
+  "data_cutoff": "2026-09-08T16:58-04:00",
+  "window_label": "Form 4 transactions filed on Sep 7 and Sep 8.",
   "universe": {
     "constituents_monitored": 503
   },
@@ -34,10 +34,36 @@
   "morning_read": "0 purchases and 0 sales qualified across 0 companies and 0 sector groups. Purchase and sale value were roughly even. The trailing four-week weekly average is 0.0 purchases and 0.0 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 0,
+    "filings_found": 193,
     "filings_parsed": 0,
-    "errors": 0,
-    "error_detail": []
+    "errors": 205,
+    "error_detail": [
+      "ADBE: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "ALL: failed to parse accession 0000899051-26-000133 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/899051/0000899051-26-000133/index.json)",
+      "ALL: failed to parse accession 0000899051-26-000131 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/899051/0000899051-26-000131/index.json)",
+      "ALL: failed to parse accession 0000899051-26-000129 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/899051/0000899051-26-000129/index.json)",
+      "AMCR: failed to parse accession 0001413007-26-000006 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/1748790/0001413007-26-000006/index.json)",
+      "AEE: failed to parse accession 0001104659-26-105724 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/1002910/0001104659-26-105724/index.json)",
+      "AIG: failed to parse accession 0002149810-26-000004 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/5272/0002149810-26-000004/index.json)",
+      "AME: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "ARES: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "AIZ: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "ADSK: failed to parse accession 0001193125-26-384494 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/769397/0001193125-26-384494/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026799 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026799/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026798 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026798/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026797 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026797/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026792 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026792/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026791 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026791/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026789 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026789/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026788 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026788/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026787 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026787/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026786 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026786/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026784 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026784/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026783 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026783/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026770 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026770/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026764 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026764/index.json)",
+      "BAC: failed to parse accession 0001918704-26-026763 (404 Client Error: Not Found for url: https://www.sec.gov/Archives/edgar/data/70858/0001918704-26-026763/index.json)"
+    ]
   },
   "transactions": []
 }
