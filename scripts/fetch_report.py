@@ -101,17 +101,21 @@ def _accession_from_href(href: str) -> str | None:
 
 
 def fetch_primary_xml_url(client: EdgarClient, cik: str, accession: str) -> str | None:
-    index_url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession}/index.json"
+    # SEC's actual folder names never contain dashes, even though the
+    # display accession number (e.g. in filenames) does — strip them here
+    # or every lookup 404s.
+    accession_nodash = accession.replace("-", "")
+    index_url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/index.json"
     payload = client.get_json(index_url)
     items = payload.get("directory", {}).get("item", [])
     xml_candidates = [i["name"] for i in items if i["name"].lower().endswith(".xml")]
     # Prefer a primary_doc.xml or the one that isn't an exhibit/POA.
     for name in xml_candidates:
         if "primary_doc" in name.lower():
-            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession}/{name}"
+            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/{name}"
     for name in xml_candidates:
         if "ex-24" not in name.lower() and "poa" not in name.lower():
-            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession}/{name}"
+            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/{name}"
     return None
 
 
