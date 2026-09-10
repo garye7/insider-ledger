@@ -1,76 +1,62 @@
 {
-  "generated_at_utc": "2026-09-10T15:16:11+00:00",
-  "data_cutoff": "2026-09-10T10:44-04:00",
+  "generated_at_utc": "2026-09-10T18:24:56+00:00",
+  "data_cutoff": "2026-09-10T13:56-04:00",
   "window_label": "Form 4 transactions filed on Sep 9 and Sep 10.",
   "universe": {
     "constituents_monitored": 503
   },
   "stats": {
     "purchases": {
-      "count": 0,
-      "value": 0,
-      "value_display": "$0"
+      "count": 1,
+      "value": 10005952.2,
+      "value_display": "$10.0M"
     },
     "sales": {
-      "count": 453,
-      "value": 501537784.62,
-      "value_display": "$501.5M"
+      "count": 460,
+      "value": 509689889.4,
+      "value_display": "$509.7M"
     },
-    "companies": 21,
-    "insiders": 36,
+    "companies": 26,
+    "insiders": 43,
     "sectors": 8,
-    "cluster_companies": 2,
+    "cluster_companies": 3,
     "dominant": "sale"
   },
   "highest_signal": {
-    "ticker": "DELL",
+    "ticker": "UBER",
     "tags": [
-      "Director",
+      "Chief Executive Officer",
       "Direct",
-      "$1M+",
-      "Cluster (15 insiders)"
+      "Purchase",
+      "$1M+"
     ]
   },
   "trailing_4wk_avg": {
-    "purchase_count": 8.5,
-    "purchase_value": 167856506.21,
-    "purchase_value_display": "$167.9M",
-    "sale_count": 593.0,
-    "sale_value": 905918350.2349999,
-    "sale_value_display": "$905.9M"
+    "purchase_count": 9.0,
+    "purchase_value": 172859482.31,
+    "purchase_value_display": "$172.9M",
+    "sale_count": 596.5,
+    "sale_value": 909994402.625,
+    "sale_value_display": "$910.0M"
   },
-  "morning_read": "0 purchases and 453 sales qualified across 21 companies and 8 sector groups. Sale value exceeded purchase value, with cluster activity at 2 companies. The trailing four-week weekly average is 8.5 purchases and 593.0 sales.",
+  "morning_read": "1 purchase and 460 sales qualified across 26 companies and 8 sector groups. Sale value exceeded purchase value, with cluster activity at 3 companies. The trailing four-week weekly average is 9.0 purchases and 596.5 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 403,
-    "filings_parsed": 47,
-    "errors": 373,
+    "filings_found": 45,
+    "filings_parsed": 45,
+    "errors": 11,
     "error_detail": [
-      "ALL: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "AMZN: no primary XML found for accession 0001104659-26-106115",
-      "AEE: failed to parse accession 0001104659-26-106255 ('NoneType' object has no attribute 'find')",
-      "AMT: no primary XML found for accession 0001193125-26-385967",
-      "ADI: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "ADSK: failed to parse accession 0001193125-26-386591 ('NoneType' object has no attribute 'find')",
-      "AXON: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "BAC: no primary XML found for accession 0001918704-26-027079",
-      "BAC: no primary XML found for accession 0001918704-26-027077",
-      "BAC: no primary XML found for accession 0001918704-26-027073",
-      "BAC: no primary XML found for accession 0001918704-26-027058",
-      "BAC: no primary XML found for accession 0001918704-26-027052",
-      "BAC: no primary XML found for accession 0001918704-26-027042",
-      "BAC: no primary XML found for accession 0001918704-26-027039",
-      "BAC: no primary XML found for accession 0001918704-26-027036",
-      "BAC: no primary XML found for accession 0001918704-26-027034",
-      "BAC: no primary XML found for accession 0001918704-26-027033",
-      "BAC: failed to parse accession 0001918704-26-027029 ('NoneType' object has no attribute 'find')",
-      "BAC: failed to parse accession 0001918704-26-027026 ('NoneType' object has no attribute 'find')",
-      "BAC: no primary XML found for accession 0001213900-26-098393",
-      "BAC: no primary XML found for accession 0001918704-26-026991",
-      "BAC: no primary XML found for accession 0001918704-26-026990",
-      "BAC: failed to parse accession 0001918704-26-026989 ('NoneType' object has no attribute 'find')",
-      "BAC: failed to parse accession 0001918704-26-026988 ('NoneType' object has no attribute 'find')",
-      "BAC: no primary XML found for accession 0001918704-26-026987"
+      "AIG: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "C: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "CL: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "CMCSA: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "EME: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "LIN: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "MNST: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "NTAP: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "CRM: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "TRGP: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "ZTS: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))"
     ]
   },
   "transactions": [
@@ -170,30 +156,6 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926106155/"
     },
     {
-      "ticker": "A",
-      "company": "AGILENT TECHNOLOGIES, INC.",
-      "sector": "Health Care",
-      "insider": "Dolsten Mikael",
-      "role": "Director",
-      "type": "S",
-      "tx_date": "2026-09-04",
-      "filed_date": "2026-09-09",
-      "shares": 634.0,
-      "price": 151.375,
-      "value": 95971.75,
-      "value_display": "$96.0K",
-      "ownership": "Direct",
-      "shares_after": 4923.68,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "Director",
-        "Direct",
-        "$50K+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1090872/000109087226000065/"
-    },
-    {
       "ticker": "AEP",
       "company": "AMERICAN ELECTRIC POWER CO INC",
       "sector": "Utilities",
@@ -216,6 +178,31 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/4904/000162828026061067/"
+    },
+    {
+      "ticker": "ADI",
+      "company": "ANALOG DEVICES INC",
+      "sector": "Information Technology",
+      "insider": "Puccio Richard C Jr",
+      "role": "EVP and CFO",
+      "type": "S",
+      "tx_date": "2026-09-08",
+      "filed_date": "2026-09-09",
+      "shares": 1500.0,
+      "price": 363.65,
+      "value": 545475.0,
+      "value_display": "$545.5K",
+      "ownership": "Direct",
+      "shares_after": 52677.376,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP and CFO",
+        "Direct",
+        "$250K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/6281/000200911026000007/"
     },
     {
       "ticker": "CSCO",
@@ -10328,52 +10315,79 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/874716/000087471626000127/"
     },
     {
-      "ticker": "INTU",
-      "company": "INTUIT INC.",
-      "sector": "Information Technology",
-      "insider": "DALZELL RICHARD L",
-      "role": "Director",
+      "ticker": "IVZ",
+      "company": "Invesco Ltd.",
+      "sector": "Financials",
+      "insider": "Lo Andrew Tak Shing",
+      "role": "Senior Managing Director",
       "type": "S",
       "tx_date": "2026-09-08",
-      "filed_date": "2026-09-09",
-      "shares": 285.0,
-      "price": 325.36,
-      "value": 92727.6,
-      "value_display": "$92.7K",
+      "filed_date": "2026-09-10",
+      "shares": 42530.0,
+      "price": 32.845,
+      "value": 1396897.85,
+      "value_display": "$1.4M",
       "ownership": "Direct",
-      "shares_after": 11531.0,
-      "rule_10b5_1": true,
+      "shares_after": 913317.0,
+      "rule_10b5_1": false,
       "amended": false,
       "signals": [
-        "Director",
+        "Senior Managing Director",
         "Direct",
-        "$50K+",
-        "10b5-1"
+        "$1M+",
+        "Cluster (3 insiders)"
       ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/896878/000162828026061198/"
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/914208/000140792226000007/"
     },
     {
-      "ticker": "ISRG",
-      "company": "INTUITIVE SURGICAL INC",
-      "sector": "Health Care",
-      "insider": "Brosius Mark",
-      "role": "EVP & Chief Mfg and Supply Cha",
+      "ticker": "IVZ",
+      "company": "Invesco Ltd.",
+      "sector": "Financials",
+      "insider": "Lo Andrew Tak Shing",
+      "role": "Senior Managing Director",
       "type": "S",
-      "tx_date": "2026-09-08",
-      "filed_date": "2026-09-09",
-      "shares": 46.0,
-      "price": 361.23,
-      "value": 16616.58,
-      "value_display": "$16.6K",
+      "tx_date": "2026-09-09",
+      "filed_date": "2026-09-10",
+      "shares": 100840.0,
+      "price": 32.2,
+      "value": 3247048.0,
+      "value_display": "$3.2M",
       "ownership": "Direct",
-      "shares_after": 835.0,
-      "rule_10b5_1": true,
+      "shares_after": 812477.0,
+      "rule_10b5_1": false,
       "amended": false,
       "signals": [
+        "Senior Managing Director",
         "Direct",
-        "10b5-1"
+        "$1M+",
+        "Cluster (3 insiders)"
       ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1035267/000201030026000031/"
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/914208/000140792226000007/"
+    },
+    {
+      "ticker": "IVZ",
+      "company": "Invesco Ltd.",
+      "sector": "Financials",
+      "insider": "Butcher Stephanie",
+      "role": "Senior Managing Director",
+      "type": "S",
+      "tx_date": "2026-09-09",
+      "filed_date": "2026-09-10",
+      "shares": 45095.0,
+      "price": 32.2825,
+      "value": 1455779.34,
+      "value_display": "$1.5M",
+      "ownership": "Direct",
+      "shares_after": 10205.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Senior Managing Director",
+        "Direct",
+        "$1M+",
+        "Cluster (3 insiders)"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/914208/000196599426000006/"
     },
     {
       "ticker": "IVZ",
@@ -10395,7 +10409,8 @@
       "signals": [
         "Chief Financial Officer",
         "Direct",
-        "$1M+"
+        "$1M+",
+        "Cluster (3 insiders)"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/914208/000167424426000010/"
     },
@@ -10421,6 +10436,30 @@
         "$250K+"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1601046/000162134626000008/"
+    },
+    {
+      "ticker": "MCK",
+      "company": "MCKESSON CORP",
+      "sector": "Health Care",
+      "insider": "Rutledge Napoleon B JR",
+      "role": "SVP, Controller & CAO",
+      "type": "S",
+      "tx_date": "2026-09-08",
+      "filed_date": "2026-09-10",
+      "shares": 111.0,
+      "price": 891.45,
+      "value": 98950.95,
+      "value_display": "$99.0K",
+      "ownership": "Direct",
+      "shares_after": 521.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000249/"
     },
     {
       "ticker": "NFLX",
@@ -10473,6 +10512,31 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1013871/000122520826007712/"
     },
     {
+      "ticker": "PCG",
+      "company": "PG&E Corp",
+      "sector": "Utilities",
+      "insider": "Fugate William Craig",
+      "role": "Director",
+      "type": "S",
+      "tx_date": "2026-09-04",
+      "filed_date": "2026-09-09",
+      "shares": 6500.0,
+      "price": 13.76,
+      "value": 89440.0,
+      "value_display": "$89.4K",
+      "ownership": "Direct",
+      "shares_after": 73530.26,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "Director",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1004980/000162828026061139/"
+    },
+    {
       "ticker": "ROK",
       "company": "ROCKWELL AUTOMATION, INC",
       "sector": "Industrials",
@@ -10519,6 +10583,80 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1024478/000182576226000004/"
+    },
+    {
+      "ticker": "SBUX",
+      "company": "STARBUCKS CORP",
+      "sector": "Consumer Discretionary",
+      "insider": "BREWER BRADY",
+      "role": "ceo, International",
+      "type": "S",
+      "tx_date": "2026-09-04",
+      "filed_date": "2026-09-09",
+      "shares": 2229.0,
+      "price": 105.6,
+      "value": 235382.4,
+      "value_display": "$235.4K",
+      "ownership": "Direct",
+      "shares_after": 73148.502,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "ceo, International",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000135/"
+    },
+    {
+      "ticker": "TSLA",
+      "company": "Tesla, Inc.",
+      "sector": "Consumer Discretionary",
+      "insider": "Taneja Vaibhav",
+      "role": "Chief Financial Officer",
+      "type": "S",
+      "tx_date": "2026-09-08",
+      "filed_date": "2026-09-09",
+      "shares": 2605.75,
+      "price": 360.134,
+      "value": 938419.17,
+      "value_display": "$938.4K",
+      "ownership": "Direct",
+      "shares_after": 25972.25,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Chief Financial Officer",
+        "Direct",
+        "$250K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926106432/"
+    },
+    {
+      "ticker": "UBER",
+      "company": "Uber Technologies, Inc",
+      "sector": "Industrials",
+      "insider": "KHOSROWSHAHI DARA",
+      "role": "Chief Executive Officer",
+      "type": "P",
+      "tx_date": "2026-09-10",
+      "filed_date": "2026-09-10",
+      "shares": 141000.0,
+      "price": 70.9642,
+      "value": 10005952.2,
+      "value_display": "$10.0M",
+      "ownership": "Direct",
+      "shares_after": 1367100.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Chief Executive Officer",
+        "Direct",
+        "Purchase",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1543151/000118423726000008/"
     },
     {
       "ticker": "VRSN",
@@ -10727,6 +10865,31 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1014473/000162465126000049/"
     },
     {
+      "ticker": "VZ",
+      "company": "VERIZON COMMUNICATIONS INC",
+      "sector": "Communication Services",
+      "insider": "Malady Kyle",
+      "role": "EVP and Group CEO-VZ Business",
+      "type": "S",
+      "tx_date": "2026-09-08",
+      "filed_date": "2026-09-09",
+      "shares": 1100.0,
+      "price": 49.98,
+      "value": 54978.0,
+      "value_display": "$55.0K",
+      "ownership": "Direct",
+      "shares_after": 106566.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP and Group CEO-VZ Business",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/732712/000176058126000052/"
+    },
+    {
       "ticker": "WDAY",
       "company": "Workday, Inc.",
       "sector": "Information Technology",
@@ -10924,6 +11087,29 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1327811/000093807126000051/"
+    },
+    {
+      "ticker": "ZBH",
+      "company": "ZIMMER BIOMET HOLDINGS, INC.",
+      "sector": "Health Care",
+      "insider": "Phipps Chad F",
+      "role": "See remarks below.",
+      "type": "S",
+      "tx_date": "2026-09-04",
+      "filed_date": "2026-09-09",
+      "shares": 3000.0,
+      "price": 98.35,
+      "value": 295050.0,
+      "value_display": "$295.1K",
+      "ownership": "Direct",
+      "shares_after": 65231.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$250K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1136869/000134667226000010/"
     }
   ]
 }
