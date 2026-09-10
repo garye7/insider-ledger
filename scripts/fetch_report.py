@@ -1,181 +1,199 @@
 """
-Parses a single Form 4 / Form 4-A ownershipDocument XML into a list of
-qualifying non-derivative transaction records (transaction code P or S).
+Entry point. Run as:  python scripts/fetch_report.py
 
-Schema reference: SEC's Form 3/4/5 XML technical spec
-(https://www.sec.gov/info/edgar/specifications/ownershipxmltechspec.htm).
-This targets the standard <ownershipDocument> schema used since the mid-2000s.
-A dedicated Rule 10b5-1 checkbox was added to the form in 2023; the tag name
-for it has moved around SEC's schema revisions, so this parser checks a few
-known locations and *also* falls back to scanning footnote text for
-"10b5-1" as a safety net. Validate this against a handful of real filings
-after your first live run — this is the one part of the schema most likely
-to need a small patch (see README > Known follow-ups).
+Pipeline:
+  1. Load config/sp500_constituents.csv (ticker, cik, company, sector, industry).
+  2. For each issuer CIK, pull its Form 4 / 4-A filing history from EDGAR's
+     company browse feed (this is indexed by issuer even though insiders are
+     the actual filers — this is the standard, documented way EDGAR itself
+     surfaces "insider transactions for company X").
+  3. Keep only filings dated the current or previous calendar day (the report
+     window). "Current day" is evaluated in America/New_York.
+  4. For each matching filing, fetch its index.json to find the primary XML
+     document, fetch that XML, and parse P/S non-derivative transactions
+     >= $10,000 out of it.
+  5. Aggregate everything into report.json via build_report.build_report().
+  6. Always write the file, even if there were zero qualifying purchases —
+     never skip publishing.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from xml.etree import ElementTree as ET
+import csv
+import datetime as dt
+import json
+import sys
+from pathlib import Path
+from zoneinfo import ZoneInfo
 
-@dataclass
-class Transaction:
-    ticker: str
-    company: str
-    issuer_cik: str
-    insider: str
-    insider_cik: str
-    role: str
-    is_officer: bool
-    is_director: bool
-    is_ten_pct_owner: bool
-    type: str  # "P" or "S"
-    tx_date: str
-    filed_date: str
-    form_type: str  # "4" or "4/A"
-    amended: bool
-    shares: float
-    price: float
-    value: float
-    ownership: str  # "Direct" / "Indirect"
-    shares_after: float | None
-    rule_10b5_1: bool
-    footnote_text: str = ""
-    accession: str = ""
-    filing_url: str = ""
+from edgar_client import EdgarClient
+from parse_form4 import parse_form4_xml
+from build_report import build_report
 
-def _text(el, path, default=None):
-    if el is None:
-        return default
-    node = el.find(path)
-    if node is None or node.text is None:
-        return default
-    return node.text.strip()
+ROOT = Path(__file__).resolve().parent.parent
+CONFIG_PATH = ROOT / "config" / "sp500_constituents.csv"
+DOCS_DATA_DIR = ROOT / "docs" / "data"
+HISTORY_DIR = DOCS_DATA_DIR / "history"
+NY = ZoneInfo("America/New_York")
 
-def _float(el, path, default=None):
-    val = _text(el, path)
-    if val is None:
-        return default
-    try:
-        return float(val)
-    except ValueError:
-        return default
+def load_constituents(path: Path) -> list[dict]:
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    if not rows:
+        raise RuntimeError(f"{path} is empty — run scripts/build_constituents.py first.")
+    return rows
 
-def _derive_role(reporting_owner) -> tuple[str, bool, bool, bool]:
-    rel = reporting_owner.find("reportingOwnerRelationship")
-    is_director = _text(rel, "isDirector") in ("1", "true", "True")
-    is_officer = _text(rel, "isOfficer") in ("1", "true", "True")
-    is_ten_pct = _text(rel, "isTenPercentOwner") in ("1", "true", "True")
-    is_other = _text(rel, "isOther") in ("1", "true", "True")
-    officer_title = _text(rel, "officerTitle", "") or ""
+def report_window(now_ny: dt.datetime) -> tuple[dt.date, dt.date, str]:
+    """Current day + previous *calendar* day, per spec. If today is Monday,
+    'previous calendar day' is Sunday (no filings expected, harmless) rather
+    than Friday — change to `- dt.timedelta(days=3)` on Mondays if you'd
+    rather always look back to the last business day instead."""
+    today = now_ny.date()
+    prev = today - dt.timedelta(days=1)
+    label = f"Form 4 transactions filed on {prev.strftime('%b %-d')} and {today.strftime('%b %-d')}."
+    return prev, today, label
 
-    if is_officer and officer_title:
-        role = officer_title
-    elif is_officer:
-        role = "Officer"
-    elif is_director:
-        role = "Director"
-    elif is_ten_pct:
-        role = "10% Owner"
-    elif is_other:
-        role = _text(rel, "otherText", "Other") or "Other"
-    else:
-        role = "Reporting person"
-    return role, is_officer, is_director, is_ten_pct
-
-def _find_rule_10b5_1(root) -> bool:
-    # Known candidate tag names across schema revisions. SEC has not been fully
-    # consistent here across versions; check a few plausible spots.
-    candidates = [
-        ".//aff10b5One",
-        ".//rule10b5-1",
-        ".//isRule10b51",
-    ]
-    for path in candidates:
-        node = root.find(path)
-        if node is not None and _text(node, ".") in ("1", "true", "True"):
-            return True
-    # Fallback: footnotes very often say so explicitly even when the schema
-    # field is absent or the filer didn't populate it.
-    for fn in root.findall(".//footnote"):
-        if fn.text and "10b5-1" in fn.text:
-            return True
-    return False
-
-def parse_form4_xml(
-    xml_text: str,
-    *,
-    ticker: str,
-    filed_date: str,
-    form_type: str,
-    accession: str,
-    filing_url: str,
-) -> list[Transaction]:
-    root = ET.fromstring(xml_text)
-
-    issuer = root.find("issuer")
-    company = _text(issuer, "issuerName", ticker)
-    issuer_cik = _text(issuer, "issuerCik", "")
-
-    footnote_text = " ".join(
-        (fn.text or "").strip() for fn in root.findall(".//footnote")
+def list_form4_filings(client: EdgarClient, cik: str) -> list[dict]:
+    """Returns recent Form 4 / 4-A filings for an issuer via EDGAR's browse feed."""
+    cik_padded = str(int(cik)).zfill(10)
+    url = (
+        "https://www.sec.gov/cgi-bin/browse-edgar"
+        f"?action=getcompany&CIK={cik_padded}&type=4&dateb=&owner=include&count=100&output=atom"
     )
-    amended = form_type.upper() == "4/A"
-    rule_10b5_1 = _find_rule_10b5_1(root)
+    xml_text = client.get_text(url)
+    root = _parse_atom(xml_text)
+    filings = []
+    ns = {"a": "http://www.w3.org/2005/Atom"}
+    for entry in root.findall("a:entry", ns):
+        title = entry.findtext("a:title", default="", namespaces=ns)
+        updated = entry.findtext("a:updated", default="", namespaces=ns)
+        link_el = entry.find("a:link", ns)
+        href = link_el.get("href") if link_el is not None else ""
 
-    transactions: list[Transaction] = []
+        # SEC's browse-edgar `type=4` filter is a prefix match, not exact —
+        # it also returns unrelated filings like 424B2/424B3/424B4/424B5.
+        # The atom entry title is formatted as "{form_type} - {filer name}",
+        # so read the real form type from there and skip anything that
+        # isn't actually a Form 4 / Form 4-A.
+        real_type = title.split(" - ", 1)[0].strip()
+        if real_type not in ("4", "4/A"):
+            continue
+        form_type = real_type
 
-    for owner in root.findall("reportingOwner"):
-        owner_id = owner.find("reportingOwnerId")
-        insider_name = _text(owner_id, "rptOwnerName", "Unknown")
-        insider_cik = _text(owner_id, "rptOwnerCik", "")
-        role, is_officer, is_director, is_ten_pct = _derive_role(owner)
-
-        for txn in root.findall("nonDerivativeTable/nonDerivativeTransaction"):
-            code = _text(txn, "transactionCoding/transactionCode")
-            if code not in ("P", "S"):
-                continue
-
-            tx_date = _text(txn, "transactionDate/value", "")
-            shares = _float(txn, "transactionAmounts/transactionShares/value", 0.0) or 0.0
-            price = _float(txn, "transactionAmounts/transactionPricePerShare/value", 0.0) or 0.0
-            value = round(shares * price, 2)
-            if value < 10_000:
-                continue
-
-            ownership_code = _text(
-                txn, "ownershipNature/directOrIndirectOwnership/value", "D"
+        accession = _accession_from_href(href)
+        if accession:
+            filings.append(
+                {
+                    "form_type": form_type,
+                    "filed_date": updated[:10],
+                    "accession": accession,
+                    "index_href": href,
+                    "cik": cik_padded,
+                }
             )
-            ownership = "Direct" if ownership_code == "D" else "Indirect"
-            shares_after = _float(
-                txn, "postTransactionAmounts/sharesOwnedFollowingTransaction/value"
-            )
+    return filings
 
-            transactions.append(
-                Transaction(
+def _parse_atom(xml_text: str):
+    from xml.etree import ElementTree as ET
+
+    return ET.fromstring(xml_text)
+
+def _accession_from_href(href: str) -> str | None:
+    # href looks like .../Archives/edgar/data/{cik}/{accession-no-dashes}-index.htm
+    if "-index" not in href:
+        return None
+    tail = href.rsplit("/", 1)[-1]
+    return tail.split("-index")[0]
+
+def fetch_primary_xml_url(client: EdgarClient, cik: str, accession: str) -> str | None:
+    # SEC's actual folder names never contain dashes, even though the
+    # display accession number (e.g. in filenames) does — strip them here
+    # or every lookup 404s.
+    accession_nodash = accession.replace("-", "")
+    index_url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/index.json"
+    payload = client.get_json(index_url)
+    items = payload.get("directory", {}).get("item", [])
+    xml_candidates = [i["name"] for i in items if i["name"].lower().endswith(".xml")]
+    # Prefer a primary_doc.xml or the one that isn't an exhibit/POA.
+    for name in xml_candidates:
+        if "primary_doc" in name.lower():
+            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/{name}"
+    for name in xml_candidates:
+        if "ex-24" not in name.lower() and "poa" not in name.lower():
+            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession_nodash}/{name}"
+    return None
+
+def main() -> int:
+    now_ny = dt.datetime.now(NY)
+    prev_day, today_day, window_label = report_window(now_ny)
+    data_cutoff_iso = now_ny.isoformat(timespec="minutes")
+
+    constituents = load_constituents(CONFIG_PATH)
+    sector_lookup = {row["ticker"]: row.get("sector", "Unknown") for row in constituents}
+
+    client = EdgarClient()
+
+    all_transactions: list[dict] = []
+    filings_found = 0
+    filings_parsed = 0
+    errors: list[str] = []
+
+    for row in constituents:
+        ticker = row["ticker"]
+        cik = row["cik"]
+        try:
+            filings = list_form4_filings(client, cik)
+        except Exception as exc:  # noqa: BLE001 — one bad company shouldn't kill the run
+            errors.append(f"{ticker}: browse-edgar lookup failed ({exc})")
+            continue
+
+        in_window = [
+            f for f in filings
+            if f["filed_date"] and dt.date.fromisoformat(f["filed_date"]) in (prev_day, today_day)
+        ]
+        filings_found += len(in_window)
+
+        for f in in_window:
+            try:
+                xml_url = fetch_primary_xml_url(client, f["cik"], f["accession"])
+                if not xml_url:
+                    errors.append(f"{ticker}: no primary XML found for accession {f['accession']}")
+                    continue
+                xml_text = client.get_text(xml_url)
+                txns = parse_form4_xml(
+                    xml_text,
                     ticker=ticker,
-                    company=company,
-                    issuer_cik=issuer_cik,
-                    insider=insider_name,
-                    insider_cik=insider_cik,
-                    role=role,
-                    is_officer=is_officer,
-                    is_director=is_director,
-                    is_ten_pct_owner=is_ten_pct,
-                    type=code,
-                    tx_date=tx_date,
-                    filed_date=filed_date,
-                    form_type=form_type,
-                    amended=amended,
-                    shares=shares,
-                    price=price,
-                    value=value,
-                    ownership=ownership,
-                    shares_after=shares_after,
-                    rule_10b5_1=rule_10b5_1,
-                    footnote_text=footnote_text,
-                    accession=accession,
-                    filing_url=filing_url,
+                    filed_date=f["filed_date"],
+                    form_type=f["form_type"],
+                    accession=f["accession"],
+                    filing_url=xml_url.rsplit("/", 1)[0] + "/",
                 )
-            )
+                for t in txns:
+                    d = t.__dict__.copy()
+                    d["ticker"] = ticker  # ensure config ticker, not issuer name variant
+                    all_transactions.append(d)
+                filings_parsed += 1
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"{ticker}: failed to parse accession {f['accession']} ({exc})")
 
-    return transactions
+    report = build_report(
+        transactions=all_transactions,
+        data_cutoff_iso=data_cutoff_iso,
+        window_label=window_label,
+        companies_checked=len(constituents),
+        filings_found=filings_found,
+        filings_parsed=filings_parsed,
+        errors=errors,
+        history_dir=HISTORY_DIR,
+        sector_lookup=sector_lookup,
+    )
+
+    DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    (DOCS_DATA_DIR / "report.json").write_text(json.dumps(report, indent=2))
+    print(
+        f"Wrote report.json — {report['stats']['purchases']['count']} purchases, "
+        f"{report['stats']['sales']['count']} sales, {len(errors)} errors."
+    )
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
