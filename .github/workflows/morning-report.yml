@@ -6,7 +6,9 @@ name: Morning Insider Report
 # new data automatically on your next page load, no other steps needed.
 on:
   workflow_dispatch: {}
-
+concurrency:
+  group: morning-report
+  cancel-in-progress: false
 permissions:
   contents: write
 
