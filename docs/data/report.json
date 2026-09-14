@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-13T13:08:35+00:00",
-  "data_cutoff": "2026-09-13T09:08-04:00",
-  "window_label": "Form 4 transactions filed on Sep 12 and Sep 13.",
+  "generated_at_utc": "2026-09-14T14:15:09+00:00",
+  "data_cutoff": "2026-09-14T10:12-04:00",
+  "window_label": "Form 4 transactions filed on Sep 13 and Sep 14.",
   "universe": {
     "constituents_monitored": 503
   },
@@ -12,32 +12,99 @@
       "value_display": "$0"
     },
     "sales": {
-      "count": 0,
-      "value": 0,
-      "value_display": "$0"
+      "count": 2,
+      "value": 1520451.25,
+      "value_display": "$1.5M"
     },
-    "companies": 0,
-    "insiders": 0,
-    "sectors": 0,
+    "companies": 1,
+    "insiders": 1,
+    "sectors": 1,
     "cluster_companies": 0,
-    "dominant": "even"
+    "dominant": "sale"
   },
-  "highest_signal": null,
+  "highest_signal": {
+    "ticker": "AFL",
+    "tags": [
+      "10% Owner",
+      "$1M+",
+      "10b5-1"
+    ]
+  },
   "trailing_4wk_avg": {
-    "purchase_count": 15.5,
-    "purchase_value": 337455499.5,
-    "purchase_value_display": "$337.5M",
-    "sale_count": 883.5,
-    "sale_value": 1124132860.84,
-    "sale_value_display": "$1.1B"
+    "purchase_count": 10.3,
+    "purchase_value": 224970333.0,
+    "purchase_value_display": "$225.0M",
+    "sale_count": 589.7,
+    "sale_value": 749928724.31,
+    "sale_value_display": "$749.9M"
   },
-  "morning_read": "0 purchases and 0 sales qualified across 0 companies and 0 sector groups. Purchase and sale value were roughly even. The trailing four-week weekly average is 15.5 purchases and 883.5 sales.",
+  "morning_read": "0 purchases and 2 sales qualified across 1 company and 1 sector group. Sale value exceeded purchase value. The trailing four-week weekly average is 10.3 purchases and 589.7 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 0,
-    "filings_parsed": 0,
-    "errors": 0,
-    "error_detail": []
+    "filings_found": 1,
+    "filings_parsed": 1,
+    "errors": 10,
+    "error_detail": [
+      "ES: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "FDX: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "MRSH: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "MSCI: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "NTAP: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "NEM: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "PLTR: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "PFG: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "VTR: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "VLTO: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))"
+    ]
   },
-  "transactions": []
+  "transactions": [
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-09-10",
+      "filed_date": "2026-09-14",
+      "shares": 11765.0,
+      "price": 114.21,
+      "value": 1343680.65,
+      "value_display": "$1.3M",
+      "ownership": "Indirect",
+      "shares_after": 50613725.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "$1M+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926107303/"
+    },
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-09-10",
+      "filed_date": "2026-09-14",
+      "shares": 1535.0,
+      "price": 115.16,
+      "value": 176770.6,
+      "value_display": "$176.8K",
+      "ownership": "Indirect",
+      "shares_after": 50612190.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926107303/"
+    }
+  ]
 }
