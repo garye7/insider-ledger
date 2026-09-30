@@ -1,10 +1,8 @@
 name: Morning Insider Report
 
-# On-demand only — no automatic schedule. Go to this repo's Actions tab,
-# pick "Morning Insider Report", click "Run workflow" whenever you want a
-# fresh pull. Takes a couple of minutes; the live dashboard picks up the
-# new data automatically on your next page load, no other steps needed.
 on:
+  schedule:
+    - cron: '0 14 * * 1-5'
   workflow_dispatch: {}
 
 concurrency:
@@ -49,5 +47,5 @@ jobs:
           git config user.name "insider-ledger-bot"
           git config user.email "actions@users.noreply.github.com"
           git add docs/data/report.json docs/data/history
-          git diff --quiet --cached || git commit -m "Manual report refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git diff --quiet --cached || git commit -m "Report refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
