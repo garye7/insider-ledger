@@ -1,43 +1,220 @@
 {
-  "generated_at_utc": "2026-10-12T21:56:11+00:00",
-  "data_cutoff": "2026-10-12T17:55-04:00",
-  "window_label": "Form 4 transactions filed on Oct 11 and Oct 12.",
+  "generated_at_utc": "2026-10-13T20:00:30+00:00",
+  "data_cutoff": "2026-10-13T15:59-04:00",
+  "window_label": "Form 4 transactions filed on Oct 12 and Oct 13.",
   "universe": {
     "constituents_monitored": 503
   },
   "stats": {
     "purchases": {
-      "count": 0,
-      "value": 0,
-      "value_display": "$0"
+      "count": 2,
+      "value": 32159.2,
+      "value_display": "$32.2K"
     },
     "sales": {
-      "count": 0,
-      "value": 0,
-      "value_display": "$0"
+      "count": 5,
+      "value": 2579106.1,
+      "value_display": "$2.6M"
     },
-    "companies": 0,
-    "insiders": 0,
-    "sectors": 0,
-    "cluster_companies": 0,
-    "dominant": "even"
+    "companies": 3,
+    "insiders": 4,
+    "sectors": 2,
+    "cluster_companies": 1,
+    "dominant": "sale"
   },
-  "highest_signal": null,
+  "highest_signal": {
+    "ticker": "CIEN",
+    "tags": [
+      "President & CEO",
+      "Direct",
+      "$1M+",
+      "10b5-1"
+    ]
+  },
   "trailing_4wk_avg": {
-    "purchase_count": 19.3,
-    "purchase_value": 291320578.7214286,
-    "purchase_value_display": "$291.3M",
-    "sale_count": 481.1,
-    "sale_value": 674610598.6271429,
-    "sale_value_display": "$674.6M"
+    "purchase_count": 22.8,
+    "purchase_value": 339879368.375,
+    "purchase_value_display": "$339.9M",
+    "sale_count": 562.2,
+    "sale_value": 787475549.415,
+    "sale_value_display": "$787.5M"
   },
-  "morning_read": "0 purchases and 0 sales qualified across 0 companies and 0 sector groups. Purchase and sale value were roughly even. The trailing four-week weekly average is 19.3 purchases and 481.1 sales.",
+  "morning_read": "2 purchases and 5 sales qualified across 3 companies and 2 sector groups. Sale value exceeded purchase value, with cluster activity at 1 company. The trailing four-week weekly average is 22.8 purchases and 562.2 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 0,
-    "filings_parsed": 0,
+    "filings_found": 26,
+    "filings_parsed": 26,
     "errors": 0,
     "error_detail": []
   },
-  "transactions": []
+  "transactions": [
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-10-08",
+      "filed_date": "2026-10-13",
+      "shares": 3257.0,
+      "price": 112.95,
+      "value": 367878.15,
+      "value_display": "$367.9K",
+      "ownership": "Indirect",
+      "shares_after": 50378883.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "$250K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926115303/"
+    },
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-10-08",
+      "filed_date": "2026-10-13",
+      "shares": 950.0,
+      "price": 113.81,
+      "value": 108119.5,
+      "value_display": "$108.1K",
+      "ownership": "Indirect",
+      "shares_after": 50377933.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926115303/"
+    },
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-10-08",
+      "filed_date": "2026-10-13",
+      "shares": 8393.0,
+      "price": 115.05,
+      "value": 965614.65,
+      "value_display": "$965.6K",
+      "ownership": "Indirect",
+      "shares_after": 50369540.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "$250K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926115303/"
+    },
+    {
+      "ticker": "AFL",
+      "company": "AFLAC INC",
+      "sector": "Financials",
+      "insider": "Japan Post Holdings Co., Ltd.",
+      "role": "10% Owner",
+      "type": "S",
+      "tx_date": "2026-10-08",
+      "filed_date": "2026-10-13",
+      "shares": 400.0,
+      "price": 115.64,
+      "value": 46256.0,
+      "value_display": "$46.3K",
+      "ownership": "Indirect",
+      "shares_after": 50369140.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926115303/"
+    },
+    {
+      "ticker": "BAC",
+      "company": "PIMCO CALIFORNIA MUNICIPAL INCOME FUND",
+      "sector": "Financials",
+      "insider": "BANK OF AMERICA CORP /DE/",
+      "role": "10% Owner",
+      "type": "P",
+      "tx_date": "2026-10-12",
+      "filed_date": "2026-10-13",
+      "shares": 2000.0,
+      "price": 8.0398,
+      "value": 16079.6,
+      "value_display": "$16.1K",
+      "ownership": "Indirect",
+      "shares_after": 2000.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "Purchase",
+        "Cluster (2 insiders)"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000478/"
+    },
+    {
+      "ticker": "BAC",
+      "company": "PIMCO CALIFORNIA MUNICIPAL INCOME FUND",
+      "sector": "Financials",
+      "insider": "MERRILL LYNCH, PIERCE, FENNER & SMITH INC.",
+      "role": "10% Owner",
+      "type": "P",
+      "tx_date": "2026-10-12",
+      "filed_date": "2026-10-13",
+      "shares": 2000.0,
+      "price": 8.0398,
+      "value": 16079.6,
+      "value_display": "$16.1K",
+      "ownership": "Indirect",
+      "shares_after": 2000.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "10% Owner",
+        "Purchase",
+        "Cluster (2 insiders)"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000478/"
+    },
+    {
+      "ticker": "CIEN",
+      "company": "CIENA CORP",
+      "sector": "Information Technology",
+      "insider": "SMITH GARY B",
+      "role": "President & CEO",
+      "type": "S",
+      "tx_date": "2026-10-01",
+      "filed_date": "2026-10-13",
+      "shares": 2952.0,
+      "price": 369.6605,
+      "value": 1091237.8,
+      "value_display": "$1.1M",
+      "ownership": "Direct",
+      "shares_after": 228407.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "President & CEO",
+        "Direct",
+        "$1M+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/936395/000103255326000043/"
+    }
+  ]
 }
