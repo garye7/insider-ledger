@@ -2,7 +2,7 @@ name: Morning Insider Report
 
 on:
   schedule:
-    - cron: '0 14 * * 1-5'
+    - cron: 37 13 * * 1-5
   workflow_dispatch: {}
 
 concurrency:
