@@ -1,77 +1,56 @@
 {
-  "generated_at_utc": "2026-11-12T16:15:56+00:00",
-  "data_cutoff": "2026-11-12T11:15-05:00",
+  "generated_at_utc": "2026-11-12T21:03:43+00:00",
+  "data_cutoff": "2026-11-12T16:02-05:00",
   "window_label": "Form 4 transactions filed on Nov 11 and Nov 12.",
   "universe": {
     "constituents_monitored": 503
   },
   "stats": {
     "purchases": {
-      "count": 2,
-      "value": 1220285.0,
-      "value_display": "$1.2M"
+      "count": 0,
+      "value": 0,
+      "value_display": "$0"
     },
     "sales": {
-      "count": 13,
-      "value": 6496949.109999999,
-      "value_display": "$6.5M"
+      "count": 25,
+      "value": 24887207.53,
+      "value_display": "$24.9M"
     },
-    "companies": 7,
-    "insiders": 11,
-    "sectors": 5,
+    "companies": 15,
+    "insiders": 19,
+    "sectors": 7,
     "cluster_companies": 3,
     "dominant": "sale"
   },
   "highest_signal": {
-    "ticker": "COHR",
+    "ticker": "HUM",
     "tags": [
-      "CEO",
+      "Chief Legal Officer",
       "Direct",
-      "Purchase",
-      "$250K+",
+      "$1M+",
       "Cluster (2 insiders)"
     ]
   },
   "trailing_4wk_avg": {
-    "purchase_count": 8.4,
-    "purchase_value": 28478320.188,
-    "purchase_value_display": "$28.5M",
-    "sale_count": 217.4,
-    "sale_value": 441846688.436,
-    "sale_value_display": "$441.8M"
+    "purchase_count": 8.0,
+    "purchase_value": 28234263.188,
+    "purchase_value_display": "$28.2M",
+    "sale_count": 219.8,
+    "sale_value": 445524740.12,
+    "sale_value_display": "$445.5M"
   },
-  "morning_read": "2 purchases and 13 sales qualified across 7 companies and 5 sector groups. Sale value exceeded purchase value, with cluster activity at 3 companies. The trailing four-week weekly average is 8.4 purchases and 217.4 sales.",
+  "morning_read": "0 purchases and 25 sales qualified across 15 companies and 7 sector groups. Sale value exceeded purchase value, with cluster activity at 3 companies. The trailing four-week weekly average is 8.0 purchases and 219.8 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 14,
-    "filings_parsed": 14,
-    "errors": 162,
+    "filings_found": 51,
+    "filings_parsed": 51,
+    "errors": 5,
     "error_detail": [
-      "NXPI: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001413447&type=4&dateb=&owner=include&count=100&output=atom)",
-      "NVR: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000906163&type=4&dateb=&owner=include&count=100&output=atom)",
-      "NUE: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000073309&type=4&dateb=&owner=include&count=100&output=atom)",
-      "OXY: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000797468&type=4&dateb=&owner=include&count=100&output=atom)",
-      "ODFL: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000878927&type=4&dateb=&owner=include&count=100&output=atom)",
-      "OKTA: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001660134&type=4&dateb=&owner=include&count=100&output=atom)",
-      "OMC: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000029989&type=4&dateb=&owner=include&count=100&output=atom)",
-      "OKE: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001039684&type=4&dateb=&owner=include&count=100&output=atom)",
-      "ORCL: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001341439&type=4&dateb=&owner=include&count=100&output=atom)",
-      "ORLY: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000898173&type=4&dateb=&owner=include&count=100&output=atom)",
-      "ON: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001097864&type=4&dateb=&owner=include&count=100&output=atom)",
-      "OTIS: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001781335&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PCAR: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000075362&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PKG: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000075677&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PLTR: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001321655&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PAYX: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000723531&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PANW: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001327567&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PYPL: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001633917&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PNR: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000077360&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PH: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000076334&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PEP: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000077476&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PCG: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001004980&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PM: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001413329&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PFE: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000078003&type=4&dateb=&owner=include&count=100&output=atom)",
-      "PNW: browse-edgar lookup failed (429 Client Error: Too Many Requests for url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000764622&type=4&dateb=&owner=include&count=100&output=atom)"
+      "ACN: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "AMCR: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "AVY: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "EVRG: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "OKE: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))"
     ]
   },
   "transactions": [
@@ -177,56 +156,101 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/4977/000110465926125899/"
     },
     {
-      "ticker": "COHR",
-      "company": "COHERENT CORP.",
-      "sector": "Information Technology",
-      "insider": "ANDERSON JAMES ROBERT",
-      "role": "CEO",
-      "type": "P",
-      "tx_date": "2026-11-09",
-      "filed_date": "2026-11-12",
-      "shares": 5000.0,
-      "price": 199.48,
-      "value": 997400.0,
-      "value_display": "$997.4K",
-      "ownership": "Direct",
-      "shares_after": 190287.0,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "CEO",
-        "Direct",
-        "Purchase",
-        "$250K+",
-        "Cluster (2 insiders)"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/820318/000089914026001276/"
-    },
-    {
-      "ticker": "COHR",
-      "company": "COHERENT CORP.",
-      "sector": "Information Technology",
-      "insider": "Digirolomo Enrico",
+      "ticker": "BR",
+      "company": "BROADRIDGE FINANCIAL SOLUTIONS, INC.",
+      "sector": "Industrials",
+      "insider": "Markus Maura A.",
       "role": "Director",
-      "type": "P",
-      "tx_date": "2026-11-10",
+      "type": "S",
+      "tx_date": "2026-11-12",
       "filed_date": "2026-11-12",
-      "shares": 1000.0,
-      "price": 222.885,
-      "value": 222885.0,
-      "value_display": "$222.9K",
+      "shares": 3180.0,
+      "price": 191.89,
+      "value": 610210.2,
+      "value_display": "$610.2K",
       "ownership": "Direct",
-      "shares_after": 11644.0,
-      "rule_10b5_1": false,
+      "shares_after": 33769.102,
+      "rule_10b5_1": true,
       "amended": false,
       "signals": [
         "Director",
         "Direct",
-        "Purchase",
-        "$50K+",
-        "Cluster (2 insiders)"
+        "$250K+",
+        "10b5-1"
       ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/820318/000089914026001275/"
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1383312/000122520826008866/"
+    },
+    {
+      "ticker": "DUK",
+      "company": "Duke Energy CORP",
+      "sector": "Utilities",
+      "insider": "Renjel Louis E.",
+      "role": "EVP&CEO DEF&MW&ChiefCorpAffOff",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 785.0,
+      "price": 129.155,
+      "value": 101386.68,
+      "value_display": "$101.4K",
+      "ownership": "Direct",
+      "shares_after": 20630.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "EVP&CEO DEF&MW&ChiefCorpAffOff",
+        "Direct",
+        "$50K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1326160/000186103226000018/"
+    },
+    {
+      "ticker": "EBAY",
+      "company": "EBAY INC",
+      "sector": "Consumer Discretionary",
+      "insider": "Loeger Julie A",
+      "role": "SVP, Chief Growth Officer",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 31766.0,
+      "price": 122.98,
+      "value": 3906582.68,
+      "value_display": "$3.9M",
+      "ownership": "Direct",
+      "shares_after": 122733.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "SVP, Chief Growth Officer",
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000225/"
+    },
+    {
+      "ticker": "EBAY",
+      "company": "EBAY INC",
+      "sector": "Consumer Discretionary",
+      "insider": "Loeger Julie A",
+      "role": "SVP, Chief Growth Officer",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 9883.0,
+      "price": 123.13,
+      "value": 1216893.79,
+      "value_display": "$1.2M",
+      "ownership": "Direct",
+      "shares_after": 112850.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "SVP, Chief Growth Officer",
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000225/"
     },
     {
       "ticker": "FERG",
@@ -301,6 +325,30 @@
         "Cluster (3 insiders)"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/2011641/000198409826000004/"
+    },
+    {
+      "ticker": "BEN",
+      "company": "FRANKLIN TEMPLETON INC",
+      "sector": "Financials",
+      "insider": "Nicholls Matthew",
+      "role": "Co-President, CFO & COO",
+      "type": "S",
+      "tx_date": "2026-11-11",
+      "filed_date": "2026-11-12",
+      "shares": 160000.0,
+      "price": 36.2,
+      "value": 5792000.0,
+      "value_display": "$5.8M",
+      "ownership": "Direct",
+      "shares_after": 774348.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Co-President, CFO & COO",
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/38777/000003877726000290/"
     },
     {
       "ticker": "HAS",
@@ -380,6 +428,31 @@
       "ticker": "HUM",
       "company": "HUMANA INC",
       "sector": "Health Care",
+      "insider": "Frederick Wayne A.I.",
+      "role": "Director",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 440.0,
+      "price": 440.575,
+      "value": 193853.0,
+      "value_display": "$193.9K",
+      "ownership": "Direct",
+      "shares_after": 0.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Director",
+        "Direct",
+        "$50K+",
+        "Cluster (2 insiders)"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/49071/000180224126000010/"
+    },
+    {
+      "ticker": "HUM",
+      "company": "HUMANA INC",
+      "sector": "Health Care",
       "insider": "Ventura Joseph C",
       "role": "Chief Legal Officer",
       "type": "S",
@@ -396,7 +469,8 @@
       "signals": [
         "Chief Legal Officer",
         "Direct",
-        "$1M+"
+        "$1M+",
+        "Cluster (2 insiders)"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/49071/000176829126000008/"
     },
@@ -446,6 +520,150 @@
         "$250K+"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000229/"
+    },
+    {
+      "ticker": "MCD",
+      "company": "MCDONALDS CORP",
+      "sector": "Consumer Discretionary",
+      "insider": "Banner Jonathan",
+      "role": "EVP - Chief Impact Officer",
+      "type": "S",
+      "tx_date": "2026-11-11",
+      "filed_date": "2026-11-12",
+      "shares": 750.0,
+      "price": 279.0,
+      "value": 209250.0,
+      "value_display": "$209.2K",
+      "ownership": "Direct",
+      "shares_after": 1541.09,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP - Chief Impact Officer",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/63908/000194355126000005/"
+    },
+    {
+      "ticker": "RMD",
+      "company": "RESMED INC",
+      "sector": "Health Care",
+      "insider": "Farrell Michael J.",
+      "role": "Chairman and CEO",
+      "type": "S",
+      "tx_date": "2026-11-09",
+      "filed_date": "2026-11-12",
+      "shares": 4993.0,
+      "price": 235.3473,
+      "value": 1175089.07,
+      "value_display": "$1.2M",
+      "ownership": "Direct",
+      "shares_after": 479803.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "Chairman and CEO",
+        "Direct",
+        "$1M+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000091/"
+    },
+    {
+      "ticker": "TDY",
+      "company": "TELEDYNE TECHNOLOGIES INC",
+      "sector": "Information Technology",
+      "insider": "Belak Cynthia Y",
+      "role": "Senior VP and Controller",
+      "type": "S",
+      "tx_date": "2026-11-11",
+      "filed_date": "2026-11-12",
+      "shares": 4313.0,
+      "price": 657.4202,
+      "value": 2835453.32,
+      "value_display": "$2.8M",
+      "ownership": "Direct",
+      "shares_after": 4856.7034,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1094285/000164131826000009/"
+    },
+    {
+      "ticker": "TDY",
+      "company": "TELEDYNE TECHNOLOGIES INC",
+      "sector": "Information Technology",
+      "insider": "Belak Cynthia Y",
+      "role": "Senior VP and Controller",
+      "type": "S",
+      "tx_date": "2026-11-11",
+      "filed_date": "2026-11-12",
+      "shares": 215.0,
+      "price": 658.1361,
+      "value": 141499.26,
+      "value_display": "$141.5K",
+      "ownership": "Direct",
+      "shares_after": 4641.7034,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$50K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1094285/000164131826000009/"
+    },
+    {
+      "ticker": "VZ",
+      "company": "VERIZON COMMUNICATIONS INC",
+      "sector": "Communication Services",
+      "insider": "Malady Kyle",
+      "role": "EVP and Group CEO-VZ Business",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 1100.0,
+      "price": 46.11,
+      "value": 50721.0,
+      "value_display": "$50.7K",
+      "ownership": "Direct",
+      "shares_after": 96666.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP and Group CEO-VZ Business",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/732712/000176058126000081/"
+    },
+    {
+      "ticker": "WEC",
+      "company": "WEC ENERGY GROUP, INC.",
+      "sector": "Utilities",
+      "insider": "KELSEY MARGARET C",
+      "role": "Executive VP & General Counsel",
+      "type": "S",
+      "tx_date": "2026-11-10",
+      "filed_date": "2026-11-12",
+      "shares": 18380.0,
+      "price": 117.3732,
+      "value": 2157319.42,
+      "value_display": "$2.2M",
+      "ownership": "Direct",
+      "shares_after": 12178.359,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/783325/000118560326000008/"
     }
   ]
 }
