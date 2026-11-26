@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-11-26T15:06:47+00:00",
-  "data_cutoff": "2026-11-26T10:04-05:00",
+  "generated_at_utc": "2026-11-26T22:34:48+00:00",
+  "data_cutoff": "2026-11-26T17:32-05:00",
   "window_label": "Form 4 transactions filed on Nov 25 and Nov 26.",
   "universe": {
     "constituents_monitored": 503
@@ -12,13 +12,13 @@
       "value_display": "$35.9M"
     },
     "sales": {
-      "count": 134,
-      "value": 5890373276.599999,
+      "count": 136,
+      "value": 5891332844.599999,
       "value_display": "$5.9B"
     },
-    "companies": 36,
-    "insiders": 47,
-    "sectors": 7,
+    "companies": 38,
+    "insiders": 49,
+    "sectors": 8,
     "cluster_companies": 6,
     "dominant": "sale"
   },
@@ -35,30 +35,24 @@
     "purchase_count": 33.4,
     "purchase_value": 111107577.53600001,
     "purchase_value_display": "$111.1M",
-    "sale_count": 453.2,
-    "sale_value": 4792820728.948,
+    "sale_count": 453.6,
+    "sale_value": 4793012642.547999,
     "sale_value_display": "$4.8B"
   },
-  "morning_read": "21 purchases and 134 sales qualified across 36 companies and 7 sector groups. Sale value exceeded purchase value, with cluster activity at 6 companies. The trailing four-week weekly average is 33.4 purchases and 453.2 sales.",
+  "morning_read": "21 purchases and 136 sales qualified across 38 companies and 8 sector groups. Sale value exceeded purchase value, with cluster activity at 6 companies. The trailing four-week weekly average is 33.4 purchases and 453.6 sales.",
   "data_health": {
     "companies_checked": 503,
-    "filings_found": 70,
-    "filings_parsed": 70,
-    "errors": 13,
+    "filings_found": 74,
+    "filings_parsed": 74,
+    "errors": 7,
     "error_detail": [
-      "DELL: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "BEN: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "HPE: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "HPQ: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "KMB: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "KMI: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "LII: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "LIN: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "NDSN: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "RF: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "RTX: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "VST: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
-      "VYLR: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))"
+      "CI: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "CSCO: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "ECHO: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "IFF: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "JBL: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "JPM: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))",
+      "MGM: browse-edgar lookup failed (HTTPSConnectionPool(host='www.sec.gov', port=443): Read timed out. (read timeout=25))"
     ]
   },
   "transactions": [
@@ -879,6 +873,29 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1996862/000162828026076025/"
     },
     {
+      "ticker": "CVX",
+      "company": "CHEVRON CORP",
+      "sector": "Energy",
+      "insider": "Pate R. Hewitt",
+      "role": "Chief Legal Officer",
+      "type": "S",
+      "tx_date": "2026-11-23",
+      "filed_date": "2026-11-25",
+      "shares": 4790.0,
+      "price": 205.71,
+      "value": 985350.9,
+      "value_display": "$985.4K",
+      "ownership": "Indirect",
+      "shares_after": 4955.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Chief Legal Officer",
+        "$250K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000206/"
+    },
+    {
       "ticker": "CRL",
       "company": "CHARLES RIVER LABORATORIES INTERNATIONAL, INC.",
       "sector": "Health Care",
@@ -902,29 +919,6 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1100682/000110068226000161/"
-    },
-    {
-      "ticker": "CVX",
-      "company": "CHEVRON CORP",
-      "sector": "Energy",
-      "insider": "Pate R. Hewitt",
-      "role": "Chief Legal Officer",
-      "type": "S",
-      "tx_date": "2026-11-23",
-      "filed_date": "2026-11-25",
-      "shares": 4790.0,
-      "price": 205.71,
-      "value": 985350.9,
-      "value_display": "$985.4K",
-      "ownership": "Indirect",
-      "shares_after": 4955.0,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "Chief Legal Officer",
-        "$250K+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000206/"
     },
     {
       "ticker": "COHR",
@@ -2072,6 +2066,31 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000215/"
     },
     {
+      "ticker": "DELL",
+      "company": "Dell Technologies Inc.",
+      "sector": "Information Technology",
+      "insider": "Radakovich Lynn Vojvodich",
+      "role": "Director",
+      "type": "S",
+      "tx_date": "2026-11-23",
+      "filed_date": "2026-11-25",
+      "shares": 2022.0,
+      "price": 379.0,
+      "value": 766338.0,
+      "value_display": "$766.3K",
+      "ownership": "Direct",
+      "shares_after": 25686.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "Director",
+        "Direct",
+        "$250K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1571996/000166220526000025/"
+    },
+    {
       "ticker": "DHR",
       "company": "DANAHER CORP /DE/",
       "sector": "Health Care",
@@ -2170,6 +2189,30 @@
         "Cluster (2 insiders)"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000242/"
+    },
+    {
+      "ticker": "DUK",
+      "company": "Duke Energy CORP",
+      "sector": "Utilities",
+      "insider": "Weintraub Alexander J.",
+      "role": "EVP, Chief Customer Officer",
+      "type": "S",
+      "tx_date": "2026-11-23",
+      "filed_date": "2026-11-25",
+      "shares": 1500.0,
+      "price": 128.82,
+      "value": 193230.0,
+      "value_display": "$193.2K",
+      "ownership": "Direct",
+      "shares_after": 10687.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "EVP, Chief Customer Officer",
+        "Direct",
+        "$50K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1326160/000201796526000012/"
     },
     {
       "ticker": "EBAY",
@@ -2469,56 +2512,6 @@
         "$50K+"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/895126/000173093526000015/"
-    },
-    {
-      "ticker": "HAS",
-      "company": "HASBRO, INC.",
-      "sector": "Consumer Discretionary",
-      "insider": "GOETTER GINA M",
-      "role": "EVP & CFO",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 2240.0,
-      "price": 112.2482,
-      "value": 251435.97,
-      "value_display": "$251.4K",
-      "ownership": "Direct",
-      "shares_after": 67497.0,
-      "rule_10b5_1": true,
-      "amended": false,
-      "signals": [
-        "EVP & CFO",
-        "Direct",
-        "$250K+",
-        "10b5-1"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/46080/000182805726000022/"
-    },
-    {
-      "ticker": "HAS",
-      "company": "HASBRO, INC.",
-      "sector": "Consumer Discretionary",
-      "insider": "GOETTER GINA M",
-      "role": "EVP & CFO",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 600.0,
-      "price": 112.9874,
-      "value": 67792.44,
-      "value_display": "$67.8K",
-      "ownership": "Direct",
-      "shares_after": 66897.0,
-      "rule_10b5_1": true,
-      "amended": false,
-      "signals": [
-        "EVP & CFO",
-        "Direct",
-        "$50K+",
-        "10b5-1"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/46080/000182805726000022/"
     },
     {
       "ticker": "HSY",
@@ -3012,6 +3005,56 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000191/"
     },
     {
+      "ticker": "HAS",
+      "company": "HASBRO, INC.",
+      "sector": "Consumer Discretionary",
+      "insider": "GOETTER GINA M",
+      "role": "EVP & CFO",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 2240.0,
+      "price": 112.2482,
+      "value": 251435.97,
+      "value_display": "$251.4K",
+      "ownership": "Direct",
+      "shares_after": 67497.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP & CFO",
+        "Direct",
+        "$250K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/46080/000182805726000022/"
+    },
+    {
+      "ticker": "HAS",
+      "company": "HASBRO, INC.",
+      "sector": "Consumer Discretionary",
+      "insider": "GOETTER GINA M",
+      "role": "EVP & CFO",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 600.0,
+      "price": 112.9874,
+      "value": 67792.44,
+      "value_display": "$67.8K",
+      "ownership": "Direct",
+      "shares_after": 66897.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "EVP & CFO",
+        "Direct",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/46080/000182805726000022/"
+    },
+    {
       "ticker": "ILMN",
       "company": "ILLUMINA, INC.",
       "sector": "Health Care",
@@ -3162,29 +3205,6 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1633978/000148955026000018/"
     },
     {
-      "ticker": "MTD",
-      "company": "METTLER TOLEDO INTERNATIONAL INC/",
-      "sector": "Health Care",
-      "insider": "Wittorf Oliver",
-      "role": "Head of PI, Retail, and GSC",
-      "type": "S",
-      "tx_date": "2026-11-09",
-      "filed_date": "2026-11-25",
-      "shares": 178.0,
-      "price": 1743.8,
-      "value": 310396.4,
-      "value_display": "$310.4K",
-      "ownership": "Direct",
-      "shares_after": 572.0,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "Direct",
-        "$250K+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000120/"
-    },
-    {
       "ticker": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
@@ -3303,28 +3323,27 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1326801/000095010326018246/"
     },
     {
-      "ticker": "MCHP",
-      "company": "MICROCHIP TECHNOLOGY INC",
-      "sector": "Information Technology",
-      "insider": "Bjornholt James Eric",
-      "role": "SENIOR CORPORATE VP AND CFO",
+      "ticker": "MTD",
+      "company": "METTLER TOLEDO INTERNATIONAL INC/",
+      "sector": "Health Care",
+      "insider": "Wittorf Oliver",
+      "role": "Head of PI, Retail, and GSC",
       "type": "S",
-      "tx_date": "2026-11-23",
+      "tx_date": "2026-11-09",
       "filed_date": "2026-11-25",
-      "shares": 3100.0,
-      "price": 60.59,
-      "value": 187829.0,
-      "value_display": "$187.8K",
-      "ownership": "Indirect",
-      "shares_after": 28573.0,
-      "rule_10b5_1": true,
+      "shares": 178.0,
+      "price": 1743.8,
+      "value": 310396.4,
+      "value_display": "$310.4K",
+      "ownership": "Direct",
+      "shares_after": 572.0,
+      "rule_10b5_1": false,
       "amended": false,
       "signals": [
-        "SENIOR CORPORATE VP AND CFO",
-        "$50K+",
-        "10b5-1"
+        "Direct",
+        "$250K+"
       ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/827054/000145268126000049/"
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000120/"
     },
     {
       "ticker": "MPWR",
@@ -3376,6 +3395,30 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1280452/000121465926014739/"
     },
     {
+      "ticker": "MCHP",
+      "company": "MICROCHIP TECHNOLOGY INC",
+      "sector": "Information Technology",
+      "insider": "Bjornholt James Eric",
+      "role": "SENIOR CORPORATE VP AND CFO",
+      "type": "S",
+      "tx_date": "2026-11-23",
+      "filed_date": "2026-11-25",
+      "shares": 3100.0,
+      "price": 60.59,
+      "value": 187829.0,
+      "value_display": "$187.8K",
+      "ownership": "Indirect",
+      "shares_after": 28573.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "SENIOR CORPORATE VP AND CFO",
+        "$50K+",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/827054/000145268126000049/"
+    },
+    {
       "ticker": "PTC",
       "company": "PTC INC.",
       "sector": "Information Technology",
@@ -3422,6 +3465,30 @@
         "$250K+"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1037038/000095014226003160/"
+    },
+    {
+      "ticker": "ROP",
+      "company": "ROPER TECHNOLOGIES INC",
+      "sector": "Information Technology",
+      "insider": "Conley Jason",
+      "role": "EVP, Chief Financial Officer",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 10000.0,
+      "price": 475.09,
+      "value": 4750900.0,
+      "value_display": "$4.8M",
+      "ownership": "Direct",
+      "shares_after": 27457.0,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "EVP, Chief Financial Officer",
+        "Direct",
+        "$1M+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/882835/000119312526478412/"
     },
     {
       "ticker": "ROST",
@@ -3471,30 +3538,6 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/310764/000173836926000004/"
     },
     {
-      "ticker": "ROP",
-      "company": "ROPER TECHNOLOGIES INC",
-      "sector": "Information Technology",
-      "insider": "Conley Jason",
-      "role": "EVP, Chief Financial Officer",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 10000.0,
-      "price": 475.09,
-      "value": 4750900.0,
-      "value_display": "$4.8M",
-      "ownership": "Direct",
-      "shares_after": 27457.0,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "EVP, Chief Financial Officer",
-        "Direct",
-        "$1M+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/882835/000119312526478412/"
-    },
-    {
       "ticker": "TGT",
       "company": "TARGET CORP",
       "sector": "Consumer Staples",
@@ -3541,6 +3584,103 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/732712/000176058126000087/"
+    },
+    {
+      "ticker": "V",
+      "company": "VISA INC.",
+      "sector": "Financials",
+      "insider": "Fabara Paul D",
+      "role": "CHIEF RISK & CLIENT SVCS OFC",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 852.0,
+      "price": 409.0,
+      "value": 348468.0,
+      "value_display": "$348.5K",
+      "ownership": "Direct",
+      "shares_after": 33913.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$250K+",
+        "Cluster (2 insiders)",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000162/"
+    },
+    {
+      "ticker": "V",
+      "company": "VISA INC.",
+      "sector": "Financials",
+      "insider": "Taneja Rajat",
+      "role": "PRESIDENT, TECHNOLOGY",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 1712.0,
+      "price": 409.0,
+      "value": 700208.0,
+      "value_display": "$700.2K",
+      "ownership": "Direct",
+      "shares_after": 232112.0,
+      "rule_10b5_1": true,
+      "amended": false,
+      "signals": [
+        "PRESIDENT, TECHNOLOGY",
+        "Direct",
+        "$250K+",
+        "Cluster (2 insiders)",
+        "10b5-1"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000160/"
+    },
+    {
+      "ticker": "WMT",
+      "company": "Walmart Inc.",
+      "sector": "Consumer Staples",
+      "insider": "Milum Dwayne M",
+      "role": "SVP & Controller",
+      "type": "S",
+      "tx_date": "2026-11-23",
+      "filed_date": "2026-11-25",
+      "shares": 5808.0,
+      "price": 129.265,
+      "value": 750771.12,
+      "value_display": "$750.8K",
+      "ownership": "Direct",
+      "shares_after": 42979.236,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$250K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/104169/000211064326000023/"
+    },
+    {
+      "ticker": "WMT",
+      "company": "Walmart Inc.",
+      "sector": "Consumer Staples",
+      "insider": "Milum Dwayne M",
+      "role": "SVP & Controller",
+      "type": "S",
+      "tx_date": "2026-11-24",
+      "filed_date": "2026-11-25",
+      "shares": 1886.0,
+      "price": 131.933,
+      "value": 248825.64,
+      "value_display": "$248.8K",
+      "ownership": "Direct",
+      "shares_after": 41093.236,
+      "rule_10b5_1": false,
+      "amended": false,
+      "signals": [
+        "Direct",
+        "$50K+"
+      ],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/104169/000211064326000023/"
     },
     {
       "ticker": "VRSN",
@@ -3665,103 +3805,6 @@
         "10b5-1"
       ],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1014473/000120481626000068/"
-    },
-    {
-      "ticker": "V",
-      "company": "VISA INC.",
-      "sector": "Financials",
-      "insider": "Fabara Paul D",
-      "role": "CHIEF RISK & CLIENT SVCS OFC",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 852.0,
-      "price": 409.0,
-      "value": 348468.0,
-      "value_display": "$348.5K",
-      "ownership": "Direct",
-      "shares_after": 33913.0,
-      "rule_10b5_1": true,
-      "amended": false,
-      "signals": [
-        "Direct",
-        "$250K+",
-        "Cluster (2 insiders)",
-        "10b5-1"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000162/"
-    },
-    {
-      "ticker": "V",
-      "company": "VISA INC.",
-      "sector": "Financials",
-      "insider": "Taneja Rajat",
-      "role": "PRESIDENT, TECHNOLOGY",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 1712.0,
-      "price": 409.0,
-      "value": 700208.0,
-      "value_display": "$700.2K",
-      "ownership": "Direct",
-      "shares_after": 232112.0,
-      "rule_10b5_1": true,
-      "amended": false,
-      "signals": [
-        "PRESIDENT, TECHNOLOGY",
-        "Direct",
-        "$250K+",
-        "Cluster (2 insiders)",
-        "10b5-1"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000160/"
-    },
-    {
-      "ticker": "WMT",
-      "company": "Walmart Inc.",
-      "sector": "Consumer Staples",
-      "insider": "Milum Dwayne M",
-      "role": "SVP & Controller",
-      "type": "S",
-      "tx_date": "2026-11-23",
-      "filed_date": "2026-11-25",
-      "shares": 5808.0,
-      "price": 129.265,
-      "value": 750771.12,
-      "value_display": "$750.8K",
-      "ownership": "Direct",
-      "shares_after": 42979.236,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "Direct",
-        "$250K+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/104169/000211064326000023/"
-    },
-    {
-      "ticker": "WMT",
-      "company": "Walmart Inc.",
-      "sector": "Consumer Staples",
-      "insider": "Milum Dwayne M",
-      "role": "SVP & Controller",
-      "type": "S",
-      "tx_date": "2026-11-24",
-      "filed_date": "2026-11-25",
-      "shares": 1886.0,
-      "price": 131.933,
-      "value": 248825.64,
-      "value_display": "$248.8K",
-      "ownership": "Direct",
-      "shares_after": 41093.236,
-      "rule_10b5_1": false,
-      "amended": false,
-      "signals": [
-        "Direct",
-        "$50K+"
-      ],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/104169/000211064326000023/"
     },
     {
       "ticker": "WMB",
